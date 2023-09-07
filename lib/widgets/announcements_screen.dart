@@ -14,7 +14,7 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
     super.initState();
     _announcementsStream = FirebaseFirestore.instance
         .collection('announcements')
-        .doc('0rObHZX98MivEd6NWlGw') // Replace with the actual document ID
+        .doc('fIASkZF3RqqM6T6V2hru') // Replace with the actual document ID
         .snapshots();
   }
 
@@ -28,7 +28,8 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: _announcementsStream,
-        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
             return Center(child: Text('Something went wrong'));
           }
@@ -41,7 +42,8 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
             return Center(child: Text('No announcements found'));
           }
 
-          Map<String, dynamic> data = snapshot.data!.data()! as Map<String, dynamic>;
+          Map<String, dynamic> data =
+              snapshot.data!.data()! as Map<String, dynamic>;
 
           return ListView.builder(
             itemCount: data.entries.length,

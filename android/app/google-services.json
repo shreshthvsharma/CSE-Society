@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "10317811447",
-    "project_id": "speedup-400e7",
-    "storage_bucket": "speedup-400e7.appspot.com"
+    "project_number": "24056576475",
+    "project_id": "cse-society-8e0b3",
+    "storage_bucket": "cse-society-8e0b3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:10317811447:android:b8e65947cb76326021cdf2",
+        "mobilesdk_app_id": "1:24056576475:android:9203df4b0988155a714ffe",
         "android_client_info": {
-          "package_name": "com.speedup.app"
+          "package_name": "com.kamranhccp.socian.social_app_socian"
         }
       },
       "oauth_client": [
         {
-          "client_id": "10317811447-krtiji6gp6dagceo9pfnvtll97bbd8j0.apps.googleusercontent.com",
+          "client_id": "24056576475-66okugq5n6q45o229nt02ggkhflhui49.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQR1idpNJ8pI93_5f5e5e5rBuZF4IXEsE"
+          "current_key": "AIzaSyCv84RN7u7iDBDu1LAmfNKaeEpjvOx6V6Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "10317811447-krtiji6gp6dagceo9pfnvtll97bbd8j0.apps.googleusercontent.com",
+              "client_id": "24056576475-66okugq5n6q45o229nt02ggkhflhui49.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -19,23 +19,21 @@ import 'package:social_app_socian/widgets/recent_screen.dart';
 import 'package:social_app_socian/widgets/settings_screen.dart';
 import 'package:social_app_socian/widgets/suggested_screen.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if(kIsWeb){
+  if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-        apiKey:"AIzaSyAQR1idpNJ8pI93_5f5e5e5rBuZF4IXEsE" ,
-        messagingSenderId: "10317811447",
-        projectId: "speedup-400e7",
-        storageBucket: "speedup-400e7.appspot.com",
-        appId: '1:10317811447:android:b8e65947cb76326021cdf2',
+        apiKey: "AIzaSyCv84RN7u7iDBDu1LAmfNKaeEpjvOx6V6Q",
+        messagingSenderId: "24056576475",
+        projectId: "cse-society-8e0b3",
+        storageBucket: "cse-society-8e0b3.appspot.com",
+        appId: '1:24056576475:android:9203df4b0988155a714ffe',
 
-          // <== | FOR LATER USE | ==>
-          
+        // <== | FOR LATER USE | ==>
       ),
     );
-  }else {
+  } else {
     await Firebase.initializeApp();
   }
   runApp(const MyApp());
@@ -52,49 +50,46 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'CSE Society',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: mobileBackgroundColor
-        ),
-        routes:{
-          '/events': (context) => EventsScreen(),
-          '/announcements': (context) => AnnouncementsScreen(),
-          '/achievements': (context) => RecentScreen(),
-          '/suggested': (context) => SuggestedScreen() ,
-          '/alumni': (context) =>  AlumniScreen(),
-          '/faculty': (context) =>  FacultyPage(),
-          '/about': (context) =>  AboutCSESocietyScreen() ,
-          '/settings':(context) => SettingsScreen(),
-          '/help':(context) =>   HelpAndFeedbackScreen(),
-        },
-
-        home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot){
-            if(snapshot.connectionState == ConnectionState.waiting){
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: primaryColor,
-                ),
-              );
-            } else if(snapshot.connectionState == ConnectionState.active){
-              if(snapshot.hasData){
-                return const ResponsiveLayout(
-                  webScreenLayout: WebScreenLayout(),
-                  mobileScreenLayout: MobileScreenLayout(),
-                );
-              } else if(snapshot.hasError){
-                return Center(
-                  child: Text("Error${snapshot.error}"),
-                );
-              }
-            }
-
-            return const LoginScreen();
+          debugShowCheckedModeBanner: false,
+          title: 'CSE Society',
+          theme: ThemeData.dark()
+              .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
+          routes: {
+            '/events': (context) => EventsScreen(),
+            '/announcements': (context) => AnnouncementsScreen(),
+            '/achievements': (context) => RecentScreen(),
+            '/suggested': (context) => SuggestedScreen(),
+            '/alumni': (context) => AlumniScreen(),
+            '/faculty': (context) => FacultyPage(),
+            '/about': (context) => AboutCSESocietyScreen(),
+            '/settings': (context) => SettingsScreen(),
+            '/help': (context) => HelpAndFeedbackScreen(),
           },
-        )
-      ),
+          home: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: primaryColor,
+                  ),
+                );
+              } else if (snapshot.connectionState == ConnectionState.active) {
+                if (snapshot.hasData) {
+                  return const ResponsiveLayout(
+                    webScreenLayout: WebScreenLayout(),
+                    mobileScreenLayout: MobileScreenLayout(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text("Error${snapshot.error}"),
+                  );
+                }
+              }
+
+              return const LoginScreen();
+            },
+          )),
     );
   }
 }
